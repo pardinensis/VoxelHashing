@@ -472,14 +472,14 @@ void CBaseCamera::GetInput( bool bGetKeyboardInput, bool bGetMouseInput, bool bG
 
 
 	if( IsKeyDown( m_aKeys[CAM_MOVE_FORWARD] ) )
-		m_vMyKeyboardDirection.y -= 0.1f;
+		m_vMyKeyboardDirection.y -= 0.01f;
 	if( IsKeyDown( m_aKeys[CAM_MOVE_BACKWARD] ) )
-		m_vMyKeyboardDirection.y += 0.1f;
+		m_vMyKeyboardDirection.y += 0.01f;
 
 	if( IsKeyDown( m_aKeys[CAM_STRAFE_RIGHT] ) )
-		m_vMyKeyboardDirection.x -= 0.1f;
+		m_vMyKeyboardDirection.x -= 0.01f;
 	if( IsKeyDown( m_aKeys[CAM_STRAFE_LEFT] ) )
-		m_vMyKeyboardDirection.x += 0.1f;
+		m_vMyKeyboardDirection.x += 0.01f;
 
     if( bGetMouseInput )
     {
@@ -688,7 +688,7 @@ D3DUtil_CameraKeys CBaseCamera::MapKey( UINT nKey )
             return CAM_STRAFE_RIGHT;
         case 'W':
             return CAM_MOVE_FORWARD;
-        case 'X': // Change back to S
+        case 'S': // Change back to S
             return CAM_MOVE_BACKWARD;
         case 'Q':
             return CAM_MOVE_DOWN;
