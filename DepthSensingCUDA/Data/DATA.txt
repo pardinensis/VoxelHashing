@@ -1,0 +1,4 @@
+download office375.7z:
+https://cloud9.cs.fau.de/index.php/s/ICrH9l1FP8IQImk
+
+unpack and move office375.sens into the data folder
