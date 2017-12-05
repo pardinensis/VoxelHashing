@@ -65,7 +65,7 @@ public:
     // Important!  Here we delete the default copy constructor.  This ensures
     // that we don't accidentally end up with dual-ownership over the same
     // underlying memory.
-    MemoryBlock(const MemoryBlock& other) = delete;
+    // MemoryBlock(const MemoryBlock& other) = delete;
 
     void clear ();
 

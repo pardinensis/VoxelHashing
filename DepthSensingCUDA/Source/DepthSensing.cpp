@@ -3,6 +3,7 @@
 #include "DepthSensing.h"
 #include "StructureSensor.h"
 #include "SensorDataReader.h"
+#include <cmath>
 
 //--------------------------------------------------------------------------------------
 // Global variables
@@ -663,7 +664,7 @@ void reconstruction()
 		&& GlobalAppState::get().s_binaryDumpSensorUseTrajectory) {
 		transformation = g_RGBDAdapter.getRigidTransform();
 
-		if (transformation[0] == -std::numeric_limits<float>::infinity() || isnan(transformation[0])) {
+		if (transformation[0] == -std::numeric_limits<float>::infinity() || transformation[0] != transformation[0]) {
 			std::cout << "INVALID FRAME" << std::endl;
 			return;
 		}
@@ -1137,8 +1138,8 @@ int main(int argc, char** argv)
 		}
 		else {
 			std::cout << "usage: DepthSensing [fileNameDescGlobalApp] [fileNameDescGlobalTracking]" << std::endl;
-			//fileNameDescGlobalApp = "zParametersDefault.txt";
-			fileNameDescGlobalApp = "zParametersManolisScan.txt";
+			fileNameDescGlobalApp = "zParametersDefault.txt";
+			//fileNameDescGlobalApp = "zParametersManolisScan.txt";
 			
 			fileNameDescGlobalTracking = "zParametersTrackingDefault.txt";
 		}

@@ -818,6 +818,8 @@ namespace ml {
 				m_frames[i].loadFromFile(in);
 			}
 
+			m_frames.resize(10);
+
 			UINT64 numIMUFrames = 0;
 			in.read((char*)&numIMUFrames, sizeof(UINT64));
 			m_IMUFrames.resize(numIMUFrames);
@@ -1098,11 +1100,19 @@ namespace ml {
 		}
 
 		struct SensorNames {
-			const std::string StructureSensor = "StructureSensor";
-			const std::string Kinect_V1 = "Kinect.V1";
-			const std::string Kinect_V2 = "Kinect.V2";
-			const std::string PrimeSense = "PrimeSense Carmine";	//there are different versions 1.08 / 1.09
-			const std::string Asus_Xtion = "Asus Xtion Pro";
+			const std::string StructureSensor;
+			const std::string Kinect_V1;
+			const std::string Kinect_V2;
+			const std::string PrimeSense;	//there are different versions 1.08 / 1.09
+			const std::string Asus_Xtion;
+
+			SensorNames() :
+				StructureSensor("StructureSensor"),
+				Kinect_V1("Kinect.V1"),
+				Kinect_V2("Kinect.V2"),
+				PrimeSense("PrimeSense Carmine"),
+				Asus_Xtion("Asus Xtion Pro")
+			{}
 		};
 		static const SensorNames& getName() {
 			static SensorNames sn;
